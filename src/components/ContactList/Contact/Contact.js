@@ -9,7 +9,6 @@ const Contact = ({id, name, number}) => {
 
   return (
     <>
-      <li id={id} className={css.contacts__item}>
         <p className={css.contacts__name}>
             {name} : ...
         <span className={css.contacts__number}>
@@ -23,7 +22,6 @@ const Contact = ({id, name, number}) => {
         >
           Delete
         </button>
-      </li>
     </>
 
   )

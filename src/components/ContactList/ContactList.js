@@ -10,19 +10,23 @@ return items.filter(contact =>
 };
 
 const ContactList = () => {
-  const {items}  = useSelector(state => state.items);
-  const value = useSelector(state => state.filter);
+  const items  = useSelector(state => state.contacts.items);
+  const value = useSelector(state => state.contacts.filter);
   const contacts = filterContacts(items, value);
 
   return (
   <ul className={css.contacts}>
-  {contacts.map(({id, name, number}) => (
-      <Contact
-        id={id}
-        name={name}
-        number={number}
-      />
-  ))}
+
+      {contacts.map(({id, name, number}) => (
+        <li key={id} className={css.contacts__item}>
+          <Contact
+            id={id}
+            name={name}
+            number={number}
+          />
+        </li>
+      ))}
+
 </ul>)
 }
 

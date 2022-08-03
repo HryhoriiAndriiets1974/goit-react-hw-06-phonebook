@@ -4,10 +4,11 @@ import css from './Filter.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const value = useSelector(state => state.filter);
+  const filter = useSelector(state => state.contacts.filter);
 
   const changeFilter = e => {
     dispatch(updateFilter(e.currentTarget.value));
+    console.log(e.currentTarget.value)
   };
 
   return (
@@ -15,8 +16,8 @@ const Filter = () => {
       Find contacts by name :
       <input
         className={css.filter__input}
-        type="text"
-        value={value}
+        type="name"
+        value={filter}
         onChange={changeFilter} />
     </label>
   )

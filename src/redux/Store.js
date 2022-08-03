@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {  persistStore,
-          persistReducer,
           FLUSH,
           REHYDRATE,
           PAUSE,
@@ -8,25 +7,10 @@ import {  persistStore,
           PURGE,
           REGISTER,
  } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { createAction } from "@reduxjs/toolkit";
-import { itemsSlice, filterSlice } from "./Slice";
-
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['items'],
-};
-
-export const addItems = createAction('items/addItems');
-export const delItems = createAction('items/delItems');
-export const upFilter = createAction('filter/upFilter');
-
-const persistedReducer = persistReducer(persistConfig, itemsSlice.reducer);
+ import {persistedReducer} from './Slice';
 export const store = configureStore({
   reducer: {
-    items: persistedReducer,
-    filter: filterSlice.reducer,
+    contacts: persistedReducer,
   },
   middleware: getDefaultMiddleware =>
   getDefaultMiddleware({

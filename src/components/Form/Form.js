@@ -8,7 +8,7 @@ function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const  items  = useSelector(state => state.items.items);
+  const  items  = useSelector(state => state.contacts.items);
 
   const handleChange = e => {
     const {name, value} = e.currentTarget;
@@ -34,7 +34,6 @@ function Form() {
     if (items.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
       return alert(`${contact.name} is already in contacts`);
     }
-    // props.onSubmit({name, number});
     dispatch(addItems(contact));
     resetForm();
   }
