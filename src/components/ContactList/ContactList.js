@@ -16,17 +16,20 @@ const ContactList = () => {
 
   return (
   <ul className={css.contacts}>
-
-      {contacts.map(({id, name, number}) => (
-        <li key={id} className={css.contacts__item}>
-          <Contact
-            id={id}
-            name={name}
-            number={number}
-          />
-        </li>
-      ))}
-
+      { contacts.length
+       ? (
+            contacts.map(({id, name, number}) => (
+              <li key={id} className={css.contacts__item}>
+                <Contact
+                  id={id}
+                  name={name}
+                  number={number}
+                />
+              </li>
+            ))
+            )
+       : (<p className={css.contacts__message}>Your phonebook is empty !!!</p>)
+      }
 </ul>)
 }
 
